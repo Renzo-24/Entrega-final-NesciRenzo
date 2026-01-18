@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}Bandeja de entrada{% endblock %}
+
+{% block contenido %}
+<h1>Bandeja de entrada</h1>
+
+
+<a href="{% url 'bandeja_entrada' %}" class="btn btn-primary">Ir a la Bandeja</a>
+
+{% if mensajes %}
+    <ul>
+{% for mensaje in mensajes %}
+    <p>
+        {{ mensaje.asunto }} - De: {{ mensaje.remitente.username }} - {{ mensaje.fecha|date:"d/m/Y H:i" }}
+        <a href="{% url 'detalle_mensaje' mensaje.pk %}" class="btn btn-primary btn-sm">Ver mensaje</a>
+        <a href="{% url 'eliminar_mensaje' mensaje.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+    </p>
+{% empty %}
+    <p>No tenés mensajes.</p>
+{% endfor %}
+</ul>
+{% else %}
+    <p>No tienes mensajes.</p>
+{% endif %}
+
+{% endblock %}
+
+

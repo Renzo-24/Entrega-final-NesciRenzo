@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}{{ object.titulo }}{% endblock %}
+
+{% block contenido %}
+<h1>{{ object.titulo }}</h1>
+<h3>{{ object.subtitulo }}</h3>
+
+<img src="{{ object.imagen.url }}" width="400">
+
+<p>{{ object.contenido|safe }}</p>
+
+<p>Autor: {{ object.autor }}</p>
+<p>Fecha: {{ object.fecha_creacion }}</p>
+
+{% endblock %}

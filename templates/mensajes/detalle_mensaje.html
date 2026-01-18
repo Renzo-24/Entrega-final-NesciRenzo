@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}Mensaje{% endblock %}
+
+{% block contenido %}
+<h2>{{ mensaje.asunto }}</h2>
+<p><strong>De:</strong> {{ mensaje.remitente.username }}</p>
+<p><strong>Fecha:</strong> {{ mensaje.fecha|date:"d/m/Y H:i" }}</p>
+<hr>
+<p>{{ mensaje.cuerpo }}</p>
+
+<a href="{% url 'bandeja_entrada' %}" class="btn btn-secondary">Volver a bandeja de entrada</a>
+<a href="{% url 'eliminar_mensaje' mensaje.pk %}" class="btn btn-danger">Eliminar mensaje</a>
+{% endblock %}

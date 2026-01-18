@@ -1,0 +1,19 @@
+# Python
+*.pyc
+__pycache__/
+
+# Entorno virtual
+venv/
+
+# Base de datos
+db.sqlite3
+
+# Archivos de medios (uploads)
+media/
+
+# Archivos estáticos compilados
+/staticfiles/
+
+# IDE / Sistema
+*.DS_Store
+.vscode/
