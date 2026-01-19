@@ -8,6 +8,7 @@
 <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-    <a href="{% url 'detalle_mensaje' mensaje.pk %}" class="btn btn-secondary">Cancelar</a>
+    <a href="{% url 'mensajes:detalle_mensaje' mensaje.pk %}" class="btn btn-secondary">Cancelar</a>
 </form>
 {% endblock %}
+

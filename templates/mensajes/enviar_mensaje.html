@@ -8,8 +8,8 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Enviar</button>
+    <button type="submit" class="btn btn-success">Enviar</button>
 </form>
 
-<p><a href="{% url 'bandeja_entrada' %}">Volver a la bandeja</a></p>
+<p><a href="{% url 'mensajes:bandeja_entrada' %}" class="btn btn-primary mt-3">Volver a la bandeja</a></p>
 {% endblock %}

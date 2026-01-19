@@ -9,6 +9,7 @@
 <hr>
 <p>{{ mensaje.cuerpo }}</p>
 
-<a href="{% url 'bandeja_entrada' %}" class="btn btn-secondary">Volver a bandeja de entrada</a>
-<a href="{% url 'eliminar_mensaje' mensaje.pk %}" class="btn btn-danger">Eliminar mensaje</a>
+<a href="{% url 'mensajes:bandeja_entrada' %}" class="btn btn-secondary">Volver a bandeja de entrada</a>
+<a href="{% url 'mensajes:eliminar_mensaje' mensaje.pk %}" class="btn btn-danger">Eliminar mensaje</a>
 {% endblock %}
+

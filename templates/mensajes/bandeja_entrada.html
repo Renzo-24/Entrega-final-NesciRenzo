@@ -6,20 +6,23 @@
 <h1>Bandeja de entrada</h1>
 
 
-<a href="{% url 'bandeja_entrada' %}" class="btn btn-primary">Ir a la Bandeja</a>
+<a href="{% url 'mensajes:enviar' %}" class="btn btn-success mb-3">Enviar mensaje</a>
+
+
+<a href="{% url 'mensajes:bandeja_entrada' %}" class="btn btn-primary mb-3">Ir a la Bandeja</a>
 
 {% if mensajes %}
     <ul>
-{% for mensaje in mensajes %}
-    <p>
-        {{ mensaje.asunto }} - De: {{ mensaje.remitente.username }} - {{ mensaje.fecha|date:"d/m/Y H:i" }}
-        <a href="{% url 'detalle_mensaje' mensaje.pk %}" class="btn btn-primary btn-sm">Ver mensaje</a>
-        <a href="{% url 'eliminar_mensaje' mensaje.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
-    </p>
-{% empty %}
-    <p>No tenés mensajes.</p>
-{% endfor %}
-</ul>
+    {% for mensaje in mensajes %}
+        <p>
+            {{ mensaje.asunto }} - De: {{ mensaje.remitente.username }} - {{ mensaje.fecha|date:"d/m/Y H:i" }}
+            <a href="{% url 'mensajes:detalle_mensaje' mensaje.pk %}" class="btn btn-primary btn-sm">Ver mensaje</a>
+            <a href="{% url 'mensajes:eliminar_mensaje' mensaje.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </p>
+    {% empty %}
+        <p>No tenés mensajes.</p>
+    {% endfor %}
+    </ul>
 {% else %}
     <p>No tienes mensajes.</p>
 {% endif %}
